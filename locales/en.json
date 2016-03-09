@@ -38,16 +38,9 @@
     "refine": {
       "sort": {
         "label": "Sort by",
-        "photo": "Photos first",
         "newest": "Newest first",
         "cheapest": "Cheapest first",
         "dearest": "Dearest first"
-      },
-      "gender": {
-        "label": "Gender",
-        "any": "Any gender",
-        "male": "For males",
-        "female": "For females"
       },
       "term": {
         "label": "Stay length",
@@ -59,7 +52,9 @@
         "label": "Room type",
         "all": "All room",
         "private": "Private rooms",
-        "shared": "Shared rooms"
+        "shared": "Shared rooms",
+        "living": "Living rooms",
+        "master": "Master rooms"
       },
       "property": {
         "label": "Accommodation type",
@@ -70,8 +65,11 @@
         "flat": "Entire Flat"
       },
       "feature": {
-        "label": "Room feature",
+        "label": "Other feature",
         "any": "Any features"
+      },
+      "misc": {
+        "photo": "Photos first"
       }
     }
   },

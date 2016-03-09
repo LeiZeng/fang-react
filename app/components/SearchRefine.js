@@ -1,6 +1,7 @@
 import React from 'react'
 import Translate from 'react-translate-component'
 import PropertyFeature from './PropertyFeature'
+import { Link } from 'react-router'
 
 class SearchRefine extends React.Component {
   render() {
@@ -12,33 +13,25 @@ class SearchRefine extends React.Component {
       'billInclude',
       'fastInternet'
     ]
+    const api = `/properties/refine/${this.props.suburb}`
+    // ?sort=desc&terms=s&room=private&property=house&feature=furnished&feature=femalePrefer
+    // &feature=nonSmoker&feature=petAllowed&feature=billInclude&feature=fastInternet&misc=photo
     return (
       <div id="refine">
         <h3><Translate content="search.refine.sort.label" /></h3>
         <ul>
           <li>
-            <strong><Translate content="search.refine.sort.photo" /></strong>
+            <Link to={api} query={{ sort: 'time' }}>
+              <Translate content="search.refine.sort.newest" />
+            </Link>
           </li>
           <li>
-            <a href="/sydney/newest"><Translate content="search.refine.sort.newest" /></a>
-          </li>
-          <li>
-            <a href="/sydney/cheapest"><Translate content="search.refine.sort.cheapest" /></a>
+            <Link to={api} query={{ sort: 'priceUp' }}>
+              <Translate content="search.refine.sort.cheapest" />
+            </Link>
           </li>
           <li>
             <a href="/sydney/dearest"><Translate content="search.refine.sort.dearest" /></a>
-          </li>
-        </ul>
-        <h3><Translate content="search.refine.gender.label" /></h3>
-        <ul>
-          <li>
-            <strong><Translate content="search.refine.gender.any" /></strong>
-          </li>
-          <li>
-            <a href="/sydney/males"><Translate content="search.refine.gender.male" /></a>
-          </li>
-          <li>
-            <a href="/sydney/females"><Translate content="search.refine.gender.female" /></a>
           </li>
         </ul>
         <h3><Translate content="search.refine.term.label" /></h3>
@@ -64,6 +57,12 @@ class SearchRefine extends React.Component {
           <li>
             <a href="/sydney/shared-rooms"><Translate content="search.refine.room.shared" /></a>
           </li>
+          <li>
+            <a href="/sydney/private-rooms"><Translate content="search.refine.room.living" /></a>
+          </li>
+          <li>
+            <a href="/sydney/shared-rooms"><Translate content="search.refine.room.master" /></a>
+          </li>
         </ul>
         <h3><Translate content="search.refine.property.label" /></h3>
         <ul>
@@ -88,6 +87,9 @@ class SearchRefine extends React.Component {
           <li>
             <strong><Translate content="search.refine.feature.any" /></strong>
           </li>
+          <li>
+            <Translate content="search.refine.misc.photo" />
+          </li>
           <PropertyFeature propertyFeatures={propertyFeatures} selected="any" />
         </ul>
         <a data-closerefine href="#">×</a>
@@ -97,6 +99,7 @@ class SearchRefine extends React.Component {
 }
 
 SearchRefine.propTypes = {
+  suburb: React.PropTypes.string
 }
 
 export default SearchRefine

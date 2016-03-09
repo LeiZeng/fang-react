@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import Dropzone from 'react-dropzone'
 
@@ -29,7 +27,7 @@ class AddProperty extends React.Component {
   constructor(props) {
     super(props)
 
-    this.state = {};
+    this.state = {}
 
     this.onChange = this.onChange.bind(this)
     this.onFieldChange = this.onFieldChange.bind(this)
@@ -39,7 +37,7 @@ class AddProperty extends React.Component {
 
   componentDidMount() {
     PropertyStore.listen(this.onChange)
-    PropertyActions.initState();
+    PropertyActions.initState()
   }
 
   componentWillUnmount() {
@@ -75,7 +73,7 @@ class AddProperty extends React.Component {
               <div className="panel-heading">Add Property</div>
               <div className="panel-body">
                 <form onSubmit={this.handleSubmit}>
-                  <div className={'form-group ' + this.state.suburbValidateState}>
+                  <div className={`form-group ${this.state.suburbValidateState}`}>
                     <label className="control-label">Suburb</label>
                     <input type="text" className="form-control" ref="suburbTextField"
                       value={this.state.suburb} name="suburb" onChange={this.onFieldChange}
@@ -83,68 +81,77 @@ class AddProperty extends React.Component {
                     />
                     <span className="help-block">{this.state.suburbHelpBlock}</span>
                   </div>
-                  <div className={'form-group ' + this.state.postcodeValidateState}>
+                  <div className={`form-group ${this.state.postcodeValidateState}`}>
                     <label className="control-label">Postcode</label>
                     <input type="text" className="form-control" ref="postcodeTextField"
                       value={this.state.postcode} name="postcode" onChange={this.onFieldChange}
                     />
                     <span className="help-block">{this.state.postcodeHelpBlock}</span>
                   </div>
-                  <div className={'form-group ' + this.state.priceValidateState}>
+                  <div className={`form-group ${this.state.priceValidateState}`}>
                     <label className="control-label">Price</label>
                     <input type="text" className="form-control" ref="priceTextField"
                       value={this.state.price} name="price" onChange={this.onFieldChange}
                     />
                     <span className="help-block">{this.state.priceHelpBlock}</span>
                   </div>
-                  <div className={'form-group ' + this.state.addressValidateState}>
+                  <div className={`form-group ${this.state.addressValidateState}`}>
                     <label className="control-label">Address</label>
                     <input type="text" className="form-control" ref="addressTextField"
                       value={this.state.address} name="address" onChange={this.onFieldChange}
                     />
                     <span className="help-block">{this.state.addressHelpBlock}</span>
                   </div>
-                  <div className={'form-group ' + this.state.titleValidateState}>
+                  <div className={`form-group ${this.state.titleValidateState}`}>
                     <label className="control-label">Title</label>
                     <input type="text" className="form-control" ref="titleTextField"
                       value={this.state.title} name="title" onChange={this.onFieldChange}
                     />
                     <span className="help-block">{this.state.titleHelpBlock}</span>
                   </div>
-                  <div className={'form-group ' + this.state.detailsValidateState}>
+                  <div className={`form-group ${this.state.detailsValidateState}`}>
                     <label className="control-label">Details</label>
                     <input type="text" className="form-control" ref="detailsTextField"
                       value={this.state.details} name="details" onChange={this.onFieldChange}
                     />
                     <span className="help-block">{this.state.detailsHelpBlock}</span>
                   </div>
-                  <div className={'form-group ' + this.state.propertyTypeValidateState}>
+                  <div className={`form-group ${this.state.propertyTypeValidateState}`}>
                     <div className="control-label">Property Type</div>
                     <div className="radio radio-inline">
                       <input type="radio" name="propertyType" id="apartment" value="apartment"
                         checked={this.state.propertyType === 'apartment'}
                         onChange={this.onFieldChange}
                       />
-                      <label htmlFor="apartment">Apartment</label>
+                      <label htmlFor="apartment">Apartment/Unit</label>
                     </div>
                     <div className="radio radio-inline">
-                      <input type="radio" name="propertyType" id="unit" value="unit"
-                        checked={this.state.propertyType === 'unit'} onChange={this.onFieldChange}
+                      <input type="radio" name="propertyType" id="studio" value="studio"
+                        checked={this.state.propertyType === 'studio'}
+                        onChange={this.onFieldChange}
                       />
-                      <label htmlFor="unit">Unit</label>
+                      <label htmlFor="unit">Studio</label>
                     </div>
                     <div className="radio radio-inline">
                       <input type="radio" name="propertyType" id="house" value="house"
-                        checked={this.state.propertyType === 'house'} onChange={this.onFieldChange}
+                        checked={this.state.propertyType === 'house'}
+                        onChange={this.onFieldChange}
                       />
                       <label htmlFor="house">House/Townhouse</label>
                     </div>
+                    <div className="radio radio-inline">
+                      <input type="radio" name="propertyType" id="whole" value="whole"
+                        checked={this.state.propertyType === 'whole'}
+                        onChange={this.onFieldChange}
+                      />
+                      <label htmlFor="unit">Entire flat</label>
+                    </div>
                   </div>
-                  <div className={'form-group ' + this.state.roomTypeValidateState}>
+                  <div className={`form-group ${this.state.roomTypeValidateState}`}>
                     <div className="control-label">Room Type</div>
                     <div className="radio radio-inline">
-                      <input type="radio" name="roomType" id="single" value="single"
-                        checked={this.state.roomType === 'single'} onChange={this.onFieldChange}
+                      <input type="radio" name="roomType" id="private" value="private"
+                        checked={this.state.roomType === 'private'} onChange={this.onFieldChange}
                       />
                       <label htmlFor="single">Single Room</label>
                     </div>
@@ -167,7 +174,7 @@ class AddProperty extends React.Component {
                       <label htmlFor="master">Master Room</label>
                     </div>
                   </div>
-                  <div className={'form-group ' + this.state.contactNameValidateState}>
+                  <div className={`form-group ${this.state.contactNameValidateState}`}>
                     <label className="control-label">Contact Name</label>
                     <input type="text" className="form-control" ref="contactNameTextField"
                       value={this.state.contactName} name="contactName"
@@ -175,7 +182,7 @@ class AddProperty extends React.Component {
                     />
                     <span className="help-block">{this.state.contactNameHelpBlock}</span>
                   </div>
-                  <div className={'form-group ' + this.state.contactNumberValidateState}>
+                  <div className={`form-group ${this.state.contactNumberValidateState}`}>
                     <label className="control-label">Contact Name</label>
                     <input type="text" className="form-control" ref="contactNumberTextField"
                       value={this.state.contactNumber} name="contactNumber"
@@ -183,7 +190,7 @@ class AddProperty extends React.Component {
                     />
                     <span className="help-block">{this.state.contactNumberHelpBlock}</span>
                   </div>
-                  <div className={'form-group ' + this.state.contactEmailValidateState}>
+                  <div className={`form-group ${this.state.contactEmailValidateState}`}>
                     <label className="control-label">Contact Email</label>
                     <input type="text" className="form-control" ref="contactEmailTextField"
                       value={this.state.contactEmail} name="contactEmail"
@@ -191,14 +198,14 @@ class AddProperty extends React.Component {
                     />
                     <span className="help-block">{this.state.contactEmailHelpBlock}</span>
                   </div>
-                  <div className={'form-group ' + this.state.contactSocialValidateState}>
+                  <div className={`form-group ${this.state.contactSocialValidateState}`}>
                     <label className="control-label">Wechat</label>
                     <input type="text" className="form-control" ref="contactNameTextField"
                       value={this.state.contactSocial} onChange={this.onFieldChange}
                     />
                     <span className="help-block">{this.state.contactSocialHelpBlock}</span>
                   </div>
-                  <div className={'form-group ' + this.state.preferredContactValidateState}>
+                  <div className={`form-group ${this.state.preferredContactValidateState}`}>
                     <div className="control-label">Preferred Contact Method</div>
                     <div className="radio radio-inline">
                       <input type="radio" name="preferredContact" id="phone" value="phone"
@@ -222,7 +229,7 @@ class AddProperty extends React.Component {
                       <label htmlFor="social">Wechat</label>
                     </div>
                   </div>
-                  <div className={'form-group ' + this.state.bondValidateState}>
+                  <div className={`form-group ${this.state.bondValidateState}`}>
                     <label className="control-label">Bond</label>
                     <input type="text" className="form-control" ref="bondTextField"
                       value={this.state.bond} name="bond"
@@ -230,7 +237,7 @@ class AddProperty extends React.Component {
                     />
                     <span className="help-block">{this.state.bondHelpBlock}</span>
                   </div>
-                  <div className={'form-group ' + this.state.availableStartValidateState}>
+                  <div className={`form-group ${this.state.availableStartValidateState}`}>
                     <label className="control-label">Available Date</label>
                     <input type="text" className="form-control" ref="availableStartTextField"
                       value={this.state.availableStart} name="availableStart"
@@ -238,7 +245,7 @@ class AddProperty extends React.Component {
                     />
                     <span className="help-block">{this.state.availableStartHelpBlock}</span>
                   </div>
-                  <div className={'form-group ' + this.state.minTermValidateState}>
+                  <div className={`form-group ${this.state.minTermValidateState}`}>
                     <label className="control-label">Available Date</label>
                     <input type="text" className="form-control" ref="minTermTextField"
                       value={this.state.minTerm} name="minTerm"
@@ -246,7 +253,7 @@ class AddProperty extends React.Component {
                     />
                     <span className="help-block">{this.state.minTermHelpBlock}</span>
                   </div>
-                  <div className={'form-group ' + this.state.propertyFeatureValidateState}>
+                  <div className={`form-group ${this.state.propertyFeatureValidateState}`}>
                     <div className="control-label">Property Features</div>
                     <div className="checkbox checkbox-inline">
                       <input type="checkbox" name="propertyFeature" id="furnished"
@@ -291,7 +298,7 @@ class AddProperty extends React.Component {
                       <label htmlFor="fastInternet">Fast Internet</label>
                     </div>
                   </div>
-                  <div className={'form-group ' + this.state.bondValidateState}>
+                  <div className={`form-group ${this.state.bondValidateState}`}>
                     <Dropzone onDrop={this.onDrop} style={DropzoneStyles}>
                       <div style={TextCenterDivStyles}>
                         Drop photos here or click to select photos to upload.
@@ -303,7 +310,7 @@ class AddProperty extends React.Component {
                           <div>
                             {
                               this.state.files.map((file, i) =>
-                                <img key={'image-preview-' + i}
+                                <img key={`image-preview-${i}`}
                                   src={file.preview} style={ImagePreviewStyles}
                                 />
                               )

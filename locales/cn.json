@@ -38,16 +38,9 @@
     "refine": {
       "sort": {
         "label": "排序",
-        "photo": "照片优先",
         "newest": "最新房源优先",
         "cheapest": "按价格从低到高",
         "dearest": "按价格从高到低"
-      },
-      "gender": {
-        "label": "房客要求",
-        "any": "不限性别",
-        "male": "只招男生",
-        "female": "只招女生"
       },
       "term": {
         "label": "住宿期限",
@@ -59,7 +52,9 @@
         "label": "房屋类型",
         "all": "不限类型",
         "private": "单人间",
-        "shared": "与人合住"
+        "shared": "与人合住",
+        "living": "客厅",
+        "master": "主人房"
       },
       "property": {
         "label": "物业类型",
@@ -70,8 +65,11 @@
         "flat": "整套出租"
       },
       "feature": {
-        "label": "环境设施",
+        "label": "其他",
         "any": "不限"
+      },
+      "misc": {
+        "photo": "照片优先"
       }
     }
   },

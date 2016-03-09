@@ -7,6 +7,9 @@ class SearchStore {
     this.ajaxAnimationClass = ''
     this.searchQuery = ''
     this.suburbs = []
+    this.limit = 5
+    this.properties = []
+    this.propertiesCount = 0
   }
 
   onUpdateAjaxAnimation(className) {
@@ -15,7 +18,7 @@ class SearchStore {
   }
 
   onSearchPropertiesSuccess(payload) {
-    payload.history.pushState(null, '/properties/' + payload.suburb)
+    payload.history.pushState(null, `/properties/${payload.suburb}`)
   }
 
   onSearchPropertiesFail(payload) {
@@ -35,6 +38,23 @@ class SearchStore {
 
   onSearchSuburbFail(errorMessage) {
     toastr.error(errorMessage)
+  }
+
+  onGetPropertiesListSuccess(data) {
+    this.properties = data.properties
+    this.limit = data.limit
+  }
+
+  onGetPropertiesListFail(errorMessage) {
+    toastr.error(errorMessage)
+  }
+
+  onGetPropertyCountSuccess(data) {
+    this.propertiesCount = data.count
+  }
+
+  onGetPropertyCountFail(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message)
   }
 }
 
