@@ -49,6 +49,21 @@ body {
   background-color: #fff;
 }
 
+.section {
+  margin-top: 30px;
+  &.large {
+    font-size: 22pt;
+  }
+}
+
+span.field {
+  margin-right: 20px;
+}
+
+i:before {
+  margin-right: 6px;
+}
+
 .navbar-form {
   .search-results {
     display: block;

@@ -155,38 +155,35 @@ class Property extends React.Component {
             {this.createImageCarousel()}
           </div>
         </div>
-        <div className="row">
-          <div className="col-md-6">
-            <div className="col-md-12">
-              <Translate
-                price={this.props.price}
-                content="property.details.priceValue"
-                component="strong"
-              />
-            </div>
-            <div className="col-md-12">
-              {this.props.address}, {this.props.suburb}, {this.props.postcode}
-            </div>
-          </div>
-
-          <div className="col-md-6">
-            <i className="ri-md ri  ri-bed">2</i>
-            <i className="ri-md ri  ri-shower">2</i>
-            <i className="ri-md ri  ri-parking">1</i>
-            <i className="fa fa-circle">{this.props.propertyType}</i>
-            <i className="fa fa-circle">{this.props.roomType}</i>
-          </div>
-        </div>
-        <div className="row">
+        <div className="row section large">
           <div className="col-md-12">
-              <i className="fa fa-user">{this.props.contactName}</i>
-              <i className="fa fa-phone">{this.props.contactNumber}</i>
-              <i className="fa fa-envelope">{this.props.contactEmail}</i>
-              <i className="fa fa-wechat">{this.props.contactSocial}</i>
+              <span className="field">
+                {this.props.address}, {this.props.suburb}, {this.props.postcode}
+              </span>
+              <span className="field">
+                <Translate
+                  price={this.props.price}
+                  content="property.details.priceValue"
+                />
+              </span>
           </div>
         </div>
-        <hr />
-        <div className="row">
+        <div className="row section">
+          <div className="col-md-6">
+            <span className="field"><i className="ri-md ri ri-bed">2</i></span>
+            <span className="field"><i className="ri-md ri ri-shower">2</i></span>
+            <span className="field"><i className="ri-md ri ri-parking">1</i></span>
+            <span className="field"><i className="fa fa-circle">{this.props.propertyType}</i></span>
+            <span className="field"><i className="fa fa-circle">{this.props.roomType}</i></span>
+          </div>
+          <div className="col-md-6">
+              <span className="field"><i className="fa fa-user">{this.props.contactName}</i></span>
+              <span className="field"><i className="fa fa-phone">{this.props.contactNumber}</i></span>
+              <span className="field"><i className="fa fa-envelope">{this.props.contactEmail}</i></span>
+              <span className="field"><i className="fa fa-wechat">{this.props.contactSocial}</i></span>
+          </div>
+        </div>
+        <div className="row section">
             {this.props.details}
         </div>
         <hr />
