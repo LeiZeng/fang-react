@@ -133,7 +133,7 @@ class Property extends React.Component {
         var filename = 'property_image_{0}_{1}'.format(this.props._id, i)
         rows.push(<img key={filename} src={'/property_images/{0}'.format(filename)}/>)
       }
-      return <Carousel dragging={true} edgeEasing="easeOutElastic" decorators={Decorators}>{rows}</Carousel>
+      return <Carousel slidesToShow={2} cellSpacing={6} dragging={true} edgeEasing="easeOutElastic" decorators={Decorators}>{rows}</Carousel>
     }
   }
 
@@ -150,67 +150,44 @@ class Property extends React.Component {
 
     return (
       <div className="container">
-        <div className="property-img">
-          {this.createImageCarousel()}
+        <div className="row">
+          <div className="property-img col-md-12">
+            {this.createImageCarousel()}
+          </div>
         </div>
         <div className="row">
-          <div className="property-info col-sm-6">
-            <h3>
-              <strong>
-                <Translate content="property.details.title" />:
-              </strong>
-            </h3>
-            <h4 className="lead">
-              <Translate content="property.details.suburb" />:
-              <strong>{this.props.suburb}, {this.props.postcode}</strong>
-            </h4>
-            <h4 className="lead">
-              <Translate content="property.details.address" />:<strong>{this.props.address}</strong>
-            </h4>
-            <h4 className="lead">
-              <Translate content="property.details.price" />:
+          <div className="col-md-6">
+            <div className="col-md-12">
               <Translate
                 price={this.props.price}
                 content="property.details.priceValue"
                 component="strong"
               />
-            </h4>
-            <h4 className="lead">
-              <i className="ri-md ri  ri-swimming-pool-indoor"></i>
-              Property Type: <strong>{this.props.propertyType}</strong>
-            </h4>
-            <h4 className="lead">
-              <Translate content="property.details.roomType" />:
-              <strong>{this.props.roomType}</strong>
-            </h4>
+            </div>
+            <div className="col-md-12">
+              {this.props.address}, {this.props.suburb}, {this.props.postcode}
+            </div>
           </div>
-          <div className="contact-details col-sm-6">
-            <h3><strong><Translate content="property.details.contact.title" />:</strong></h3>
-            <h4 className="lead">
-              <Translate content="property.details.contact.name" />:
-              <strong>{this.props.contactName}</strong>
-            </h4>
-            <h4 className="lead">
-              <Translate content="property.details.contact.phoneNumber" />:
-              <strong>{this.props.contactNumber}</strong>
-            </h4>
-            <h4 className="lead">
-              <Translate content="property.details.contact.email" />:
-              <strong>{this.props.contactEmail}</strong>
-            </h4>
-            <h4 className="lead">
-              <Translate content="property.details.contact.social" />:
-              <strong>{this.props.contactSocial}</strong>
-              <Translate content="property.details.contact.prefer" />
-            </h4>
+
+          <div className="col-md-6">
+            <i className="ri-md ri  ri-bed">2</i>
+            <i className="ri-md ri  ri-shower">2</i>
+            <i className="ri-md ri  ri-parking">1</i>
+            <i className="fa fa-circle">{this.props.propertyType}</i>
+            <i className="fa fa-circle">{this.props.roomType}</i>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-12">
+              <i className="fa fa-user">{this.props.contactName}</i>
+              <i className="fa fa-phone">{this.props.contactNumber}</i>
+              <i className="fa fa-envelope">{this.props.contactEmail}</i>
+              <i className="fa fa-wechat">{this.props.contactSocial}</i>
           </div>
         </div>
         <hr />
         <div className="row">
-          <h2><strong>{this.props.title}</strong></h2>
-          <h4 className="lead"><Translate content="property.details.details" />:
-            <strong>{this.props.details}</strong>
-          </h4>
+            {this.props.details}
         </div>
         <hr />
         <div className="row">
